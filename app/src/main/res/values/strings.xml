@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">TragoMaestro</string>
+    <string name="home_brand_trago">Trago</string>
+    <string name="home_brand_maestro">Maestro</string>
+    <string name="home_subtitle">EL JUEGO DEFINITIVO PARA FIESTAS</string>
+    <string name="home_start">EMPEZAR</string>
+    <string name="home_share">Comparte la fiesta</string>
+    <string name="home_terms">TÉRMINOS DE SERVICIO</string>
+    <string name="home_privacy">POLÍTICA DE PRIVACIDAD</string>
+    <string name="home_copyright">© 2024 TRAGOMAESTRO STUDIO</string>
+
+    <string name="cd_logo_copa">Logo de copa</string>
+    <string name="cd_logo_rayo">Icono de rayo</string>
+    <string name="cd_instagram">Instagram</string>
+    <string name="cd_facebook">Facebook</string>
+    <string name="cd_twitter">Twitter</string>
 </resources>
