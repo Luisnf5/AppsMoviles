@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tm_background"
+        android:paddingStart="24dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <ImageButton
+            android:id="@+id/btnCloseGame"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_home_social_circle"
+            android:padding="14dp"
+            android:src="@drawable/ic_close"
+            android:alpha="0.6"
+            android:contentDescription="Cerrar"
+            app:tint="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/contentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/btnCloseGame"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/tvCurrentPlayerBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_game_player_badge"
+                android:paddingStart="18dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="8dp"
+                android:text="ESTÁS JUGANDO: CARLOS"
+                android:textAllCaps="true"
+                android:textColor="@color/tm_pink"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_game_card"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_quote"
+                        android:alpha="0.25"
+                        android:layout_marginBottom="8dp"
+                        app:tint="@color/tm_pink" />
+
+                    <TextView
+                        android:id="@+id/tvQuestionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="¿Cuál ha sido el momento más vergonzoso de tu última fiesta?"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginBottom="24dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutAnswersContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnConfirmTruth"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_game_confirm_button"
+                android:text="ESTA ES LA VERDAD ✓"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnSkipQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
+                android:background="@android:color/transparent"
+                android:text="OMITIR PREGUNTA"
+                android:textAllCaps="true"
+                android:textColor="#6D6271"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_fast_forward"
+                android:drawablePadding="8dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
