@@ -77,8 +77,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
             if (gameSharedViewModel.canStartGame()) {
                 Timber.i("Hay suficientes jugadores, seleccionando jugador aleatorio")
                 gameSharedViewModel.selectRandomPlayer()
-                // Actívalo cuando exista turnFragment
-                // findNavController().navigate(R.id.turnFragment)
+                findNavController().navigate(R.id.turnFragment)
             } else {
                 Timber.w("No se puede comenzar el juego: jugadores insuficientes")
             }
