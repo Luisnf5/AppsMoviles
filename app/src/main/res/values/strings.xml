@@ -30,4 +30,28 @@
     <string name="cd_close">Cerrar</string>
     <string name="cd_add_player">Añadir jugador</string>
     <string name="cd_settings">Configuración</string>
+
+
+    <string name="rules_title">REGLAS</string>
+    <string name="rules_subtitle">CÓMO NO MORIR EN EL INTENTO</string>
+
+    <string name="rules_step_1_title">El Elegido</string>
+    <string name="rules_step_1_heading">1. El Elegido</string>
+    <string name="rules_step_1_desc">La app elige a un \'sujeto\' del grupo. Pásale el móvil a esa persona (con cuidado, ¡que no queremos pantallas rotas!).</string>
+
+    <string name="rules_step_2_title">La Inquisición</string>
+    <string name="rules_step_2_heading">2. La Inquisición</string>
+    <string name="rules_step_2_desc">Aparecerá una pregunta sobre el sujeto. El grupo debe debatir en secreto y elegir una respuesta unánime.</string>
+
+    <string name="rules_step_3_title">El Veredicto</string>
+    <string name="rules_step_3_heading">3. El Veredicto</string>
+    <string name="rules_step_3_desc">El sujeto confiesa la verdad. ¿El grupo acertó? Si han acertado, el sujeto bebe por no saber esconder sus secretos.</string>
+
+    <string name="rules_step_4_title">Castigo Grupal</string>
+    <string name="rules_step_4_heading">4. Castigo Grupal</string>
+    <string name="rules_step_4_desc">Si el grupo falla, todos beben menos el sujeto. ¡Sed buenos amigos y no falléis!</string>
+
+    <string name="rules_pro_tip">PRO TIP</string>
+    <string name="rules_tip_text">"Si no sabes la respuesta, inventa la que más risa dé. Al final, lo importante es hidratarse con alegría."</string>
+    <string name="rules_got_it">LO TENGO</string>
 </resources>
