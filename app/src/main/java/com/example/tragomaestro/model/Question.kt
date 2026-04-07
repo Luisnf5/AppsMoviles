@@ -1,5 +1,7 @@
 package com.example.tragomaestro.model
 
 data class Question(
-    val quest: String
+    val id: Int,
+    val text: String,
+    val answers: List<AnswerOption>
 )
