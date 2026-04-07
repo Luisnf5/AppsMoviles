@@ -2,6 +2,7 @@ package com.example.tragomaestro
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.example.tragomaestro.databinding.ActivityMainBinding
 import timber.log.Timber
 
@@ -10,7 +11,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         Timber.i("onCreate de MainActivity")
+
+        supportActionBar?.hide()
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
