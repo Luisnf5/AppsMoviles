@@ -35,8 +35,7 @@ class TurnFragment : Fragment(R.layout.fragment_turn) {
 
         binding.btnReady.setOnClickListener {
             Timber.i("Botón ¡SOY YO! pulsado")
-            // Actívalo cuando exista gameFragment
-            // findNavController().navigate(R.id.gameFragment)
+            findNavController().navigate(R.id.gameFragment)
         }
     }
 
