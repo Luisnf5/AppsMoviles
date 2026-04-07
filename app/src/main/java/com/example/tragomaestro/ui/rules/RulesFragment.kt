@@ -1,20 +1,33 @@
 package com.example.tragomaestro.ui.rules
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.tragomaestro.R
+import com.example.tragomaestro.databinding.FragmentRulesBinding
 
-class RulesFragment : Fragment() {
+class RulesFragment : Fragment(R.layout.fragment_rules) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Error: Se arregla cuando añadas el xml
-        return inflater.inflate(R.layout.fragment_rules, container, false)
+    private var _binding: FragmentRulesBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentRulesBinding.bind(view)
+
+        binding.btnCloseRules.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.btnGotIt.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
