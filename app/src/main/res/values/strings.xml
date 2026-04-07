@@ -54,4 +54,14 @@
     <string name="rules_pro_tip">PRO TIP</string>
     <string name="rules_tip_text">"Si no sabes la respuesta, inventa la que más risa dé. Al final, lo importante es hidratarse con alegría."</string>
     <string name="rules_got_it">LO TENGO</string>
+
+
+    <string name="turn_label">TURNO DE...</string>
+    <string name="turn_ready">¡SOY YO!</string>
+    <string name="turn_icon_cd">Icono de turno</string>
+    <string name="turn_arrow_cd">Flecha derecha</string>
+    <string name="turn_pass_device">Pasa el dispositivo a CARLOS</string>
+    <string name="turn_pass_device_dynamic">Pasa el dispositivo a %1$s</string>
+    <string name="turn_no_player">SIN JUGADOR</string>
+    <string name="turn_no_player_desc">No hay ningún jugador seleccionado todavía</string>
 </resources>
