@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#FF2D85" />
-    <corners android:radius="32dp" />
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pulsado -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#E02674"/>
+            <corners android:radius="36dp"/>
+        </shape>
+    </item>
+
+    <!-- Normal -->
+    <item>
+        <shape>
+            <solid android:color="#FF2D85"/>
+            <corners android:radius="36dp"/>
+        </shape>
+    </item>
+
+</selector>
