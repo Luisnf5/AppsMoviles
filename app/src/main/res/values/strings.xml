@@ -14,4 +14,20 @@
     <string name="cd_instagram">Instagram</string>
     <string name="cd_facebook">Facebook</string>
     <string name="cd_twitter">Twitter</string>
+
+    <string name="players_title">¡A JUGAR!</string>
+    <string name="players_subtitle">PREPARA LA FIESTA</string>
+    <string name="players_add_label">AÑADIR JUGADORES</string>
+    <string name="players_input_hint">Nombre del jugador...</string>
+    <string name="players_edit_packs">Editar Packs de Preguntas</string>
+    <string name="players_start_game">COMENZAR JUEGO</string>
+
+    <string name="players_nav_players">JUGADORES</string>
+    <string name="players_nav_rules">REGLAS</string>
+    <string name="players_nav_achievements">LOGROS</string>
+    <string name="players_nav_profile">PERFIL</string>
+
+    <string name="cd_close">Cerrar</string>
+    <string name="cd_add_player">Añadir jugador</string>
+    <string name="cd_settings">Configuración</string>
 </resources>

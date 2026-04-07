@@ -15,4 +15,10 @@
             app:destination="@id/playersFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="com.example.tragomaestro.ui.players.PlayersFragment"
+        android:label="Players"
+        tools:layout="@layout/fragment_players" />
+
 </navigation>
