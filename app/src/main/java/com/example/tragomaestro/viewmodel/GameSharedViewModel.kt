@@ -14,7 +14,7 @@ class GameSharedViewModel : ViewModel() {
     val selectedPlayer: LiveData<Player?> = _selectedPlayer
 
     fun addPlayer(name: String) {
-        val cleanName = name.trim()
+        val cleanName = name.trim().uppercase()
         if (cleanName.isBlank()) return
 
         val currentList = _players.value?.toMutableList() ?: mutableListOf()
@@ -40,5 +40,9 @@ class GameSharedViewModel : ViewModel() {
         if (currentList.isNotEmpty()) {
             _selectedPlayer.value = currentList.random()
         }
+    }
+
+    fun clearSelectedPlayer() {
+        _selectedPlayer.value = null
     }
 }

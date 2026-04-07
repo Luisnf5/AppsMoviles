@@ -1,6 +1,5 @@
 package com.example.tragomaestro.model
 
-class Question(
+data class Question(
     val quest: String
-
 )

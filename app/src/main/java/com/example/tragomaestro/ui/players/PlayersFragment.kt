@@ -12,16 +12,19 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.tragomaestro.R
 import com.example.tragomaestro.databinding.FragmentPlayersBinding
+import com.example.tragomaestro.model.Player
+import com.example.tragomaestro.viewmodel.GameSharedViewModel
 
 class PlayersFragment : Fragment(R.layout.fragment_players) {
 
     private var _binding: FragmentPlayersBinding? = null
     private val binding get() = _binding!!
 
-    private val players = mutableListOf<String>()
+    private val gameSharedViewModel: GameSharedViewModel by activityViewModels()
 
     private val chipStyles = listOf(
         R.drawable.bg_player_chip_pink,
@@ -36,37 +39,22 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
 
         _binding = FragmentPlayersBinding.bind(view)
 
+        setupListeners()
+        observeViewModel()
+    }
+
+    private fun setupListeners() {
         binding.btnClose.setOnClickListener {
             findNavController().navigateUp()
         }
 
-        binding.btnEditPacks.setOnClickListener {
-            // Actívalo cuando exista packsFragment
-            // findNavController().navigate(R.id.packsFragment)
-        }
-
-        binding.btnStartGame.setOnClickListener {
-            // Actívalo cuando exista turnFragment
-            // findNavController().navigate(R.id.turnFragment)
-        }
-
-        binding.navRules.setOnClickListener {
-            // Actívalo cuando exista rulesFragment
-            // findNavController().navigate(R.id.rulesFragment)
-        }
-
-        binding.navAchievements.setOnClickListener {
-            // Actívalo cuando exista achievementsFragment
-            // findNavController().navigate(R.id.achievementsFragment)
-        }
-
         binding.btnAddPlayer.setOnClickListener {
-            addPlayer()
+            addPlayerFromInput()
         }
 
         binding.etNewPlayer.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                addPlayer()
+                addPlayerFromInput()
                 true
             } else {
                 false
@@ -79,8 +67,11 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         }
 
         binding.btnStartGame.setOnClickListener {
-            // Actívalo cuando exista turnFragment
-            // findNavController().navigate(R.id.turnFragment)
+            if (gameSharedViewModel.canStartGame()) {
+                gameSharedViewModel.selectRandomPlayer()
+                // Actívalo cuando exista turnFragment
+                // findNavController().navigate(R.id.turnFragment)
+            }
         }
 
         binding.navRules.setOnClickListener {
@@ -91,41 +82,33 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
             // Actívalo cuando exista achievementsFragment
             // findNavController().navigate(R.id.achievementsFragment)
         }
-
-        renderPlayers()
     }
 
-    private fun addPlayer() {
-        val newPlayer = binding.etNewPlayer.text.toString().trim().uppercase()
+    private fun observeViewModel() {
+        gameSharedViewModel.players.observe(viewLifecycleOwner) { players ->
+            renderPlayers(players)
 
-        if (newPlayer.isBlank()) return
-
-        if (players.contains(newPlayer)) {
-            binding.etNewPlayer.setText("")
-            return
+            val canStart = players.size >= 2
+            binding.btnStartGame.isEnabled = canStart
+            binding.btnStartGame.alpha = if (canStart) 1.0f else 0.45f
         }
+    }
 
-        players.add(newPlayer)
+    private fun addPlayerFromInput() {
+        val newPlayer = binding.etNewPlayer.text.toString()
+        gameSharedViewModel.addPlayer(newPlayer)
         binding.etNewPlayer.setText("")
-        renderPlayers()
     }
 
-    private fun removePlayer(index: Int) {
-        if (index in players.indices) {
-            players.removeAt(index)
-            renderPlayers()
-        }
-    }
-
-    private fun renderPlayers() {
+    private fun renderPlayers(players: List<Player>) {
         binding.layoutPlayersChips.removeAllViews()
 
-        players.forEachIndexed { index, playerName ->
-            binding.layoutPlayersChips.addView(createPlayerChip(playerName, index))
+        players.forEachIndexed { index, player ->
+            binding.layoutPlayersChips.addView(createPlayerChip(player, index))
         }
     }
 
-    private fun createPlayerChip(playerName: String, index: Int): View {
+    private fun createPlayerChip(player: Player, index: Int): View {
         val context = requireContext()
 
         val container = LinearLayout(context).apply {
@@ -145,7 +128,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         container.layoutParams = params
 
         val nameView = TextView(context).apply {
-            text = playerName
+            text = player.name
             setTextColor(resources.getColor(android.R.color.white, null))
             textSize = 12f
             setTypeface(typeface, Typeface.BOLD)
@@ -160,7 +143,9 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
             layoutParams = LinearLayout.LayoutParams(dp(14), dp(14)).apply {
                 leftMargin = dp(8)
             }
-            setOnClickListener { removePlayer(index) }
+            setOnClickListener {
+                gameSharedViewModel.removePlayer(player)
+            }
         }
 
         container.addView(nameView)
