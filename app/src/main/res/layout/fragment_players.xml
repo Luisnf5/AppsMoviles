@@ -45,7 +45,7 @@
                         android:layout_gravity="center"
                         android:contentDescription="@string/cd_close"
                         android:src="@drawable/ic_close"
-                        android:tint="#66FFFFFF" />
+                        app:tint="#66FFFFFF" />
                 </FrameLayout>
 
                 <!-- Header -->
@@ -137,7 +137,7 @@
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/cd_add_player"
                                 android:src="@drawable/ic_plus"
-                                android:tint="@android:color/white" />
+                                app:tint="@android:color/white" />
                         </FrameLayout>
                     </FrameLayout>
                 </LinearLayout>
@@ -175,7 +175,7 @@
                         android:layout_height="16dp"
                         android:contentDescription="@string/cd_settings"
                         android:src="@drawable/ic_settings"
-                        android:tint="#FF2D85" />
+                        app:tint="#FF2D85" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -241,7 +241,7 @@
                     android:layout_height="20dp"
                     android:contentDescription="@string/players_nav_players"
                     android:src="@drawable/ic_users"
-                    android:tint="#FF2D85" />
+                    app:tint="#FF2D85" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -271,7 +271,7 @@
                     android:layout_height="20dp"
                     android:contentDescription="@string/players_nav_rules"
                     android:src="@drawable/ic_book_open"
-                    android:tint="#4DFFFFFF" />
+                    app:tint="#4DFFFFFF" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -301,7 +301,7 @@
                     android:layout_height="20dp"
                     android:contentDescription="@string/players_nav_achievements"
                     android:src="@drawable/ic_trophy"
-                    android:tint="#4DFFFFFF" />
+                    app:tint="#4DFFFFFF" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -328,7 +328,7 @@
                     android:layout_height="20dp"
                     android:contentDescription="@string/players_nav_profile"
                     android:src="@drawable/ic_user"
-                    android:tint="#4DFFFFFF" />
+                    app:tint="#4DFFFFFF" />
 
                 <TextView
                     android:layout_width="wrap_content"
