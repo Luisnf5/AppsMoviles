@@ -22,4 +22,10 @@
         android:label="Players"
         tools:layout="@layout/fragment_players" />
 
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.tragomaestro.ui.rules.RulesFragment"
+        android:label="Rules"
+        tools:layout="@layout/fragment_rules" />
+
 </navigation>

@@ -40,6 +40,26 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
             findNavController().navigateUp()
         }
 
+        binding.btnEditPacks.setOnClickListener {
+            // Actívalo cuando exista packsFragment
+            // findNavController().navigate(R.id.packsFragment)
+        }
+
+        binding.btnStartGame.setOnClickListener {
+            // Actívalo cuando exista turnFragment
+            // findNavController().navigate(R.id.turnFragment)
+        }
+
+        binding.navRules.setOnClickListener {
+            // Actívalo cuando exista rulesFragment
+            // findNavController().navigate(R.id.rulesFragment)
+        }
+
+        binding.navAchievements.setOnClickListener {
+            // Actívalo cuando exista achievementsFragment
+            // findNavController().navigate(R.id.achievementsFragment)
+        }
+
         binding.btnAddPlayer.setOnClickListener {
             addPlayer()
         }
@@ -64,8 +84,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         }
 
         binding.navRules.setOnClickListener {
-            // Actívalo cuando exista rulesFragment
-            // findNavController().navigate(R.id.rulesFragment)
+            findNavController().navigate(R.id.rulesFragment)
         }
 
         binding.navAchievements.setOnClickListener {
