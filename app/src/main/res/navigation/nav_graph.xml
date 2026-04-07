@@ -28,4 +28,16 @@
         android:label="Rules"
         tools:layout="@layout/fragment_rules" />
 
+    <fragment
+        android:id="@+id/turnFragment"
+        android:name="com.example.tragomaestro.ui.turn.TurnFragment"
+        android:label="Turn"
+        tools:layout="@layout/fragment_turn" />
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.tragomaestro.ui.game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game" />
+
 </navigation>
