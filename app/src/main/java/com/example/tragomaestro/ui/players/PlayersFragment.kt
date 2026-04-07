@@ -18,6 +18,7 @@ import com.example.tragomaestro.R
 import com.example.tragomaestro.databinding.FragmentPlayersBinding
 import com.example.tragomaestro.model.Player
 import com.example.tragomaestro.viewmodel.GameSharedViewModel
+import timber.log.Timber
 
 class PlayersFragment : Fragment(R.layout.fragment_players) {
 
@@ -37,6 +38,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Timber.i("PlayersFragment cargado")
         _binding = FragmentPlayersBinding.bind(view)
 
         setupListeners()
@@ -45,15 +47,18 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
 
     private fun setupListeners() {
         binding.btnClose.setOnClickListener {
+            Timber.i("Botón cerrar pulsado en PlayersFragment")
             findNavController().navigateUp()
         }
 
         binding.btnAddPlayer.setOnClickListener {
+            Timber.i("Botón añadir jugador pulsado")
             addPlayerFromInput()
         }
 
         binding.etNewPlayer.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                Timber.i("Enter pulsado en campo de jugador")
                 addPlayerFromInput()
                 true
             } else {
@@ -62,23 +67,30 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         }
 
         binding.btnEditPacks.setOnClickListener {
+            Timber.i("Botón editar packs pulsado")
             // Actívalo cuando exista packsFragment
             // findNavController().navigate(R.id.packsFragment)
         }
 
         binding.btnStartGame.setOnClickListener {
+            Timber.i("Botón comenzar juego pulsado")
             if (gameSharedViewModel.canStartGame()) {
+                Timber.i("Hay suficientes jugadores, seleccionando jugador aleatorio")
                 gameSharedViewModel.selectRandomPlayer()
                 // Actívalo cuando exista turnFragment
                 // findNavController().navigate(R.id.turnFragment)
+            } else {
+                Timber.w("No se puede comenzar el juego: jugadores insuficientes")
             }
         }
 
         binding.navRules.setOnClickListener {
+            Timber.i("Navegando a RulesFragment desde PlayersFragment")
             findNavController().navigate(R.id.rulesFragment)
         }
 
         binding.navAchievements.setOnClickListener {
+            Timber.i("Botón logros pulsado")
             // Actívalo cuando exista achievementsFragment
             // findNavController().navigate(R.id.achievementsFragment)
         }
@@ -86,21 +98,26 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
 
     private fun observeViewModel() {
         gameSharedViewModel.players.observe(viewLifecycleOwner) { players ->
+            Timber.d("Lista de jugadores actualizada. Total: ${players.size}")
             renderPlayers(players)
 
             val canStart = players.size >= 2
             binding.btnStartGame.isEnabled = canStart
             binding.btnStartGame.alpha = if (canStart) 1.0f else 0.45f
+
+            Timber.d("Estado del botón comenzar juego. Habilitado: $canStart")
         }
     }
 
     private fun addPlayerFromInput() {
         val newPlayer = binding.etNewPlayer.text.toString()
+        Timber.d("Intentando añadir jugador desde input: '$newPlayer'")
         gameSharedViewModel.addPlayer(newPlayer)
         binding.etNewPlayer.setText("")
     }
 
     private fun renderPlayers(players: List<Player>) {
+        Timber.d("Renderizando chips de jugadores")
         binding.layoutPlayersChips.removeAllViews()
 
         players.forEachIndexed { index, player ->
@@ -144,6 +161,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
                 leftMargin = dp(8)
             }
             setOnClickListener {
+                Timber.i("Eliminando jugador desde chip: ${player.name}")
                 gameSharedViewModel.removePlayer(player)
             }
         }
@@ -159,6 +177,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
     }
 
     override fun onDestroyView() {
+        Timber.i("Destruyendo vista de PlayersFragment")
         super.onDestroyView()
         _binding = null
     }
