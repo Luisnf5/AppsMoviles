@@ -1,4 +1,5 @@
 package com.example.tragomaestro.model
 
-class Game {
-}
+class Game (
+    val id: Int = 0
+)

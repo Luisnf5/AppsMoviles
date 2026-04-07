@@ -1,4 +1,5 @@
 package com.example.tragomaestro.model
 
-class Player {
-}
+class Player(
+    val name: String,
+)
