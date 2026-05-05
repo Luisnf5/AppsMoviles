@@ -1,22 +1,48 @@
 package com.example.tragomaestro.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tragomaestro.database.AchievementEntity
 import com.example.tragomaestro.repository.AchievementRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class AchievementsViewModel(application: Application) : AndroidViewModel(application) {
+class AchievementsViewModel(
+    private val repository: AchievementRepository
+) : ViewModel() {
 
-    private val repository = AchievementRepository(application)
-
-    val achievements = repository.achievements
+    val achievements: LiveData<List<AchievementEntity>> =
+        repository.achievements
 
     init {
         viewModelScope.launch {
-            Timber.i("Inicializando logros desde AchievementsViewModel")
+            Timber.i("Inicializando logros")
             repository.initializeAchievementsIfNeeded()
+        }
+    }
+
+    fun registerRoundCompleted() {
+        viewModelScope.launch {
+            repository.registerRoundCompleted()
+        }
+    }
+
+    fun registerPlayersCount(count: Int) {
+        viewModelScope.launch {
+            repository.registerPlayersCount(count)
+        }
+    }
+
+    fun registerCorrectGuess() {
+        viewModelScope.launch {
+            repository.registerCorrectGuess()
+        }
+    }
+
+    fun registerFailedGuess() {
+        viewModelScope.launch {
+            repository.registerFailedGuess()
         }
     }
 }
