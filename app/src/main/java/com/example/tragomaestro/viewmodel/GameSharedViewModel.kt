@@ -8,6 +8,7 @@ import com.example.tragomaestro.model.AnswerStyle
 import com.example.tragomaestro.model.Player
 import com.example.tragomaestro.model.Question
 import timber.log.Timber
+import com.example.tragomaestro.model.RoundResult
 
 class GameSharedViewModel : ViewModel() {
 
@@ -25,6 +26,55 @@ class GameSharedViewModel : ViewModel() {
 
     private val _groupAnswerIndex = MutableLiveData<Int?>(null)
     val groupAnswerIndex: LiveData<Int?> = _groupAnswerIndex
+
+    private val _roundResult = MutableLiveData<RoundResult?>()
+    val roundResult: LiveData<RoundResult?> = _roundResult
+
+    fun generateRoundResult() {
+        val subjectAnswer = _selectedAnswerIndex.value
+        val groupAnswer = _groupAnswerIndex.value
+
+        if (subjectAnswer == null || groupAnswer == null) {
+            Timber.w("No se puede generar resultado: falta alguna respuesta")
+            _roundResult.value = null
+            return
+        }
+
+        val isCorrect = subjectAnswer == groupAnswer
+        val drinkCount = (1..5).random()
+
+        val message = if (isCorrect) {
+            listOf(
+                "El sujeto no sabe mentir. ¡Que beba por no saber ocultar sus secretos!",
+                "Habéis leído su mente como auténticos maestros del trago.",
+                "Demasiado fácil... el sujeto era un libro abierto.",
+                "El grupo ha olido la verdad desde lejos."
+            ).random()
+        } else {
+            listOf(
+                "No conocéis a vuestros amigos ni de lejos. ¡Bebed todos menos el sujeto!",
+                "El sujeto os ha engañado como quería. Castigo grupal.",
+                "Vaya lectura más mala. El grupo necesita entrenar.",
+                "Habéis fallado estrepitosamente. Brindis de la vergüenza."
+            ).random()
+        }
+
+        _roundResult.value = RoundResult(
+            isCorrect = isCorrect,
+            drinkCount = drinkCount,
+            message = message
+        )
+
+        Timber.i("Resultado generado. Acierto=$isCorrect, tragos=$drinkCount")
+    }
+
+    fun prepareNextRound() {
+        selectRandomPlayer()
+        loadRandomQuestion()
+        clearSelectedAnswer()
+        clearGroupAnswer()
+        Timber.i("Nueva ronda preparada")
+    }
 
     fun selectGroupAnswer(index: Int) {
         _groupAnswerIndex.value = index
