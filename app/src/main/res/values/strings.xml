@@ -87,4 +87,10 @@
     <string name="result_next_success">SIGUIENTE VÍCTIMA →</string>
     <string name="result_next_failure">SIGUIENTE OPORTUNIDAD →</string>
     <string name="result_footer">PREPARANDO LA SIGUIENTE HUMILLACIÓN...</string>
+
+    <string name="achievements_title">LOGROS</string>
+    <string name="achievements_subtitle">TU LEYENDA ETÍLICA</string>
+    <string name="achievements_unlocked_counter">DESBLOQUEADOS</string>
+    <string name="achievements_xp_label">NIVEL 4 · NOVATO</string>
+    <string name="achievements_xp_value">XP 450</string>
 </resources>
