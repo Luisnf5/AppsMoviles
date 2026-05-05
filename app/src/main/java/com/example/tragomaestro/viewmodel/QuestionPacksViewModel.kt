@@ -22,9 +22,20 @@ class QuestionPacksViewModel(
         }
     }
 
-    fun createPack(name: String) {
+    fun setPackSelected(packId: Int, selected: Boolean) {
         viewModelScope.launch {
-            repository.createPack(name)
+            repository.setPackSelected(packId, selected)
+            Timber.i("Pack $packId seleccionado=$selected")
+        }
+    }
+
+    fun createPack(name: String, description: String) {
+        viewModelScope.launch {
+            repository.createPack(
+                name = name,
+                description = description,
+                isCustom = true
+            )
             Timber.i("Pack creado: $name")
         }
     }
