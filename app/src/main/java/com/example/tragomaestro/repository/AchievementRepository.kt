@@ -1,114 +1,45 @@
 package com.example.tragomaestro.repository
 
-import android.content.Context
 import androidx.lifecycle.LiveData
+import com.example.tragomaestro.database.AchievementDao
 import com.example.tragomaestro.database.AchievementEntity
-import com.example.tragomaestro.database.TragoMaestroDatabase
 import timber.log.Timber
 
-class AchievementRepository(context: Context) {
-
-    private val achievementDao =
-        TragoMaestroDatabase.getDatabase(context).achievementDao()
+class AchievementRepository(
+    private val achievementDao: AchievementDao
+) {
 
     val achievements: LiveData<List<AchievementEntity>> =
         achievementDao.observeAchievements()
 
     suspend fun initializeAchievementsIfNeeded() {
-        if (achievementDao.countAchievements() > 0) {
-            Timber.d("Los logros ya estaban inicializados")
-            return
-        }
+        if (achievementDao.countAchievements() > 0) return
 
-        val defaultAchievements = listOf(
-            AchievementEntity(
-                id = "first_round",
-                title = "PRIMER TRAGO",
-                description = "Completa tu primera ronda sin escupir el líquido.",
-                iconName = "beer",
-                progress = 0,
-                target = 1,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "party_soul",
-                title = "ALMA DE LA FIESTA",
-                description = "Juega con 4 o más jugadores en una misma partida.",
-                iconName = "users",
-                progress = 0,
-                target = 4,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "mind_reader",
-                title = "MENTE COLMENA",
-                description = "El grupo acierta una respuesta del sujeto.",
-                iconName = "trophy",
-                progress = 0,
-                target = 1,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "social_disaster",
-                title = "DESASTRE SOCIAL",
-                description = "El grupo falla intentando adivinar al sujeto.",
-                iconName = "skull",
-                progress = 0,
-                target = 1,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "telepaths",
-                title = "TELÉPATAS",
-                description = "El grupo acierta 3 respuestas.",
-                iconName = "zap",
-                progress = 0,
-                target = 3,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "not_even_one",
-                title = "NI UNA",
-                description = "El grupo falla 3 respuestas. Preocupante.",
-                iconName = "skull",
-                progress = 0,
-                target = 3,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "warming_up",
-                title = "CALENTANDO",
-                description = "Juega 5 rondas.",
-                iconName = "fire",
-                progress = 0,
-                target = 5,
-                unlocked = false
-            ),
-            AchievementEntity(
-                id = "immortal",
-                title = "EL INMORTAL",
-                description = "Llega al final de la noche sin llamar a tu ex ni a tu jefe.",
-                iconName = "star",
-                progress = 0,
-                target = 10,
-                unlocked = false
-            )
+        val achievements = listOf(
+            AchievementEntity("first_round", "PRIMER TRAGO", "Completa tu primera ronda.", "beer", 0, 1, false),
+            AchievementEntity("party_soul", "ALMA DE LA FIESTA", "Juega con 4 o más jugadores.", "users", 0, 4, false),
+            AchievementEntity("full_party", "ESTO ES UNA BODA", "Juega con 6 o más jugadores.", "users", 0, 6, false),
+            AchievementEntity("mind_reader", "MENTE COLMENA", "El grupo acierta una respuesta.", "trophy", 0, 1, false),
+            AchievementEntity("telepaths", "TELÉPATAS DE BAR", "El grupo acierta 3 respuestas.", "zap", 0, 3, false),
+            AchievementEntity("social_disaster", "DESASTRE SOCIAL", "El grupo falla una respuesta.", "skull", 0, 1, false),
+            AchievementEntity("not_even_one", "NI UNA", "El grupo falla 3 respuestas.", "skull", 0, 3, false),
+            AchievementEntity("warming_up", "CALENTANDO", "Juega 5 rondas.", "fire", 0, 5, false),
+            AchievementEntity("out_of_control", "ESTO SE VA DE LAS MANOS", "Juega 10 rondas.", "fire", 0, 10, false)
         )
 
-        achievementDao.insertAll(defaultAchievements)
-        Timber.i("Logros iniciales insertados en Room")
+        achievementDao.insertAll(achievements)
+        Timber.i("Logros iniciales insertados")
     }
 
     suspend fun registerRoundCompleted() {
         achievementDao.incrementProgress("first_round")
         achievementDao.incrementProgress("warming_up")
-        achievementDao.incrementProgress("immortal")
+        achievementDao.incrementProgress("out_of_control")
     }
 
     suspend fun registerPlayersCount(count: Int) {
-        if (count >= 4) {
-            achievementDao.unlockAchievement("party_soul")
-        }
+        if (count >= 4) achievementDao.unlockAchievement("party_soul")
+        if (count >= 6) achievementDao.unlockAchievement("full_party")
     }
 
     suspend fun registerCorrectGuess() {
