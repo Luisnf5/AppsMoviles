@@ -6,13 +6,20 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [AchievementEntity::class],
-    version = 1,
-    exportSchema = false
+    entities = [
+        AchievementEntity::class,
+        QuestionPackEntity::class,
+        QuestionEntity::class,
+        GameStatsEntity::class
+    ],
+    version = 1
 )
 abstract class TragoMaestroDatabase : RoomDatabase() {
 
     abstract fun achievementDao(): AchievementDao
+    abstract fun questionPackDao(): QuestionPackDao
+    abstract fun questionDao(): QuestionDao
+    abstract fun gameStatsDao(): GameStatsDao
 
     companion object {
         @Volatile
@@ -23,8 +30,10 @@ abstract class TragoMaestroDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TragoMaestroDatabase::class.java,
-                    "tragomaestro_database"
-                ).build()
+                    "tragomaestro_db"
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
 
                 INSTANCE = instance
                 instance
