@@ -17,6 +17,7 @@ class PassToGroupFragment : Fragment(R.layout.fragment_pass_to_group) {
 
     private val gameSharedViewModel: GameSharedViewModel by activityViewModels()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,8 +34,8 @@ class PassToGroupFragment : Fragment(R.layout.fragment_pass_to_group) {
 
         binding.btnContinueToGroup.setOnClickListener {
             Timber.i("El móvil pasa al grupo")
-            // Activaremos esto cuando creemos GroupDecisionFragment
-            // findNavController().navigate(R.id.groupDecisionFragment)
+            gameSharedViewModel.clearGroupAnswer()
+            findNavController().navigate(R.id.groupDecisionFragment)
         }
 
         binding.btnClosePassToGroup.setOnClickListener {
