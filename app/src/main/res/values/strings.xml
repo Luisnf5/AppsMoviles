@@ -70,4 +70,11 @@
     <string name="pass_to_group_subject_placeholder">Ahora, ¡Que no se note cuál es tu respuesta!</string>
     <string name="pass_to_group_description">El grupo debe intentar adivinar qué respuesta ha elegido el sujeto para esta pregunta.</string>
     <string name="pass_to_group_button">EL GRUPO ESTÁ LISTO</string>
+
+    <string name="group_decision_badge">¿QUÉ HA ELEGIDO %1$s?</string>
+    <string name="group_decision_badge_placeholder">¿QUÉ HA ELEGIDO EL SUJETO?</string>
+    <string name="group_decision_instruction">Ahora el grupo debe elegir la respuesta que cree que ha marcado el sujeto.</string>
+    <string name="group_decision_confirm">CONFIRMAR RESPUESTA</string>
+    <string name="group_decision_skip">OMITIR PREGUNTA</string>
+    <string name="game_question_placeholder">Pregunta de la ronda</string>
 </resources>
