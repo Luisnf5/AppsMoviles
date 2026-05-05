@@ -19,6 +19,7 @@ import com.example.tragomaestro.viewmodel.GameSharedViewModel
 import timber.log.Timber
 import androidx.navigation.fragment.findNavController
 
+
 class GroupDecisionFragment : Fragment(R.layout.fragment_group_decision) {
 
     private var _binding: FragmentGroupDecisionBinding? = null
@@ -47,8 +48,8 @@ class GroupDecisionFragment : Fragment(R.layout.fragment_group_decision) {
             val selectedIndex = gameSharedViewModel.groupAnswerIndex.value
             if (selectedIndex != null) {
                 Timber.i("Respuesta del grupo confirmada. Índice: $selectedIndex")
-                // Aquí luego iremos a ResultFragment
-                // findNavController().navigate(R.id.resultFragment)
+                gameSharedViewModel.generateRoundResult()
+                findNavController().navigate(R.id.resultFragment)
             } else {
                 Timber.w("El grupo intentó confirmar sin seleccionar respuesta")
             }
