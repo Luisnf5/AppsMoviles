@@ -6,6 +6,12 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/passToGroupFragment"
+        android:name="com.example.tragomaestro.ui.passtogroup.PassToGroupFragment"
+        android:label="PassToGroup"
+        tools:layout="@layout/fragment_pass_to_group" />
+
+    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.tragomaestro.ui.home.HomeFragment"
         android:label="Home"

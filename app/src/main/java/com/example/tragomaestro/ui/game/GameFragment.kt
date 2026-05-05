@@ -50,9 +50,8 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         binding.btnConfirmTruth.setOnClickListener {
             val selectedIndex = gameSharedViewModel.selectedAnswerIndex.value
             if (selectedIndex != null) {
-                Timber.i("Respuesta confirmada. Índice: $selectedIndex")
-                // Aquí irá groupDecisionFragment cuando exista
-                // findNavController().navigate(R.id.groupDecisionFragment)
+                Timber.i("Respuesta del sujeto confirmada. Índice: $selectedIndex")
+                findNavController().navigate(R.id.passToGroupFragment)
             }
         }
 
