@@ -30,7 +30,7 @@ class TurnFragment : Fragment(R.layout.fragment_turn) {
     private fun setupListeners() {
         binding.btnCloseTurn.setOnClickListener {
             Timber.i("Botón cerrar pulsado en TurnFragment")
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
 
         binding.btnReady.setOnClickListener {

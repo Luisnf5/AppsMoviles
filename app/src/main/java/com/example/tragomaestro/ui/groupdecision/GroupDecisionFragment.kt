@@ -40,8 +40,7 @@ class GroupDecisionFragment : Fragment(R.layout.fragment_group_decision) {
     private fun setupListeners() {
         binding.btnCloseGroupGame.setOnClickListener {
             Timber.i("Cerrando decisión del grupo y volviendo a jugadores")
-            // De momento volvemos a players
-            findNavController().navigate(R.id.playersFragment)
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
 
         binding.btnConfirmGroupTruth.setOnClickListener {

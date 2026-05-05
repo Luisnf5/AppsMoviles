@@ -40,7 +40,7 @@ class PassToGroupFragment : Fragment(R.layout.fragment_pass_to_group) {
 
         binding.btnClosePassToGroup.setOnClickListener {
             Timber.i("Saliendo desde PassToGroupFragment")
-            findNavController().navigate(R.id.playersFragment)
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
     }
 
