@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tm_background"
+        android:paddingStart="24dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <ImageButton
+            android:id="@+id/btnCloseResult"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:alpha="0.6"
+            android:background="@drawable/bg_home_social_circle"
+            android:contentDescription="@string/cd_close"
+            android:padding="14dp"
+            android:src="@drawable/ic_close"
+            app:tint="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/resultContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btnCloseResult"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/layoutResultIconCircle"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_result_success_circle">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivResultIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_zap"
+                    app:tint="@color/tm_success" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvResultTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="@string/result_success_title"
+                android:textAllCaps="true"
+                android:textColor="@color/tm_success"
+                android:textSize="32sp"
+                android:textStyle="bold|italic"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:id="@+id/tvResultSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:letterSpacing="0.35"
+                android:text="@string/result_success_subtitle"
+                android:textAllCaps="true"
+                android:textColor="#80FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutResultCard"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_result_success_card"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tvResultMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/result_success_message_placeholder"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <LinearLayout
+                    android:id="@+id/layoutBeerIcons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/btnNextRound"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="@drawable/bg_game_confirm_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/result_next_success"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:id="@+id/tvResultFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:letterSpacing="0.3"
+                android:text="@string/result_footer"
+                android:textAllCaps="true"
+                android:textColor="#33FFFFFF"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
