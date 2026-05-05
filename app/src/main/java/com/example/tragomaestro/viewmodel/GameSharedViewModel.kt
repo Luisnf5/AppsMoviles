@@ -23,6 +23,17 @@ class GameSharedViewModel : ViewModel() {
     private val _selectedAnswerIndex = MutableLiveData<Int?>(null)
     val selectedAnswerIndex: LiveData<Int?> = _selectedAnswerIndex
 
+    private val _groupAnswerIndex = MutableLiveData<Int?>(null)
+    val groupAnswerIndex: LiveData<Int?> = _groupAnswerIndex
+
+    fun selectGroupAnswer(index: Int) {
+        _groupAnswerIndex.value = index
+        Timber.d("Respuesta del grupo seleccionada: índice=$index")
+    }
+
+    fun clearGroupAnswer() {
+        _groupAnswerIndex.value = null
+    }
     private val provisionalQuestions = listOf(
         Question(
             id = 1,
@@ -103,6 +114,7 @@ class GameSharedViewModel : ViewModel() {
     }
 
     fun loadRandomQuestion() {
+        _groupAnswerIndex.value = null
         if (provisionalQuestions.isEmpty()) {
             Timber.w("No hay preguntas disponibles")
             _currentQuestion.value = null
@@ -124,4 +136,5 @@ class GameSharedViewModel : ViewModel() {
         _selectedAnswerIndex.value = null
         Timber.d("Respuesta seleccionada limpiada")
     }
+
 }
