@@ -70,9 +70,9 @@ class GameSharedViewModel : ViewModel() {
 
     fun prepareNextRound() {
         selectRandomPlayer()
-        loadRandomQuestion()
         clearSelectedAnswer()
         clearGroupAnswer()
+        _roundResult.value = null
         Timber.i("Nueva ronda preparada")
     }
 
@@ -185,6 +185,19 @@ class GameSharedViewModel : ViewModel() {
     fun clearSelectedAnswer() {
         _selectedAnswerIndex.value = null
         Timber.d("Respuesta seleccionada limpiada")
+    }
+
+    fun setCurrentQuestion(question: Question?) {
+        _currentQuestion.value = question
+        _selectedAnswerIndex.value = null
+        _groupAnswerIndex.value = null
+        _roundResult.value = null
+
+        if (question == null) {
+            Timber.w("Pregunta actual establecida como null")
+        } else {
+            Timber.i("Pregunta actual establecida desde Room: ${question.id}")
+        }
     }
 
 }

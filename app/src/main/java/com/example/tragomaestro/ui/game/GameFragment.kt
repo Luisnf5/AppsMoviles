@@ -18,11 +18,23 @@ import com.example.tragomaestro.model.AnswerOption
 import com.example.tragomaestro.model.AnswerStyle
 import com.example.tragomaestro.viewmodel.GameSharedViewModel
 import timber.log.Timber
+import androidx.lifecycle.lifecycleScope
+import com.example.tragomaestro.TragoMaestroApplication
+import com.example.tragomaestro.repository.QuestionPackRepository
+import kotlinx.coroutines.launch
 
 class GameFragment : Fragment(R.layout.fragment_game) {
 
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
+
+    private val questionRepository: QuestionPackRepository by lazy {
+        val database = (requireActivity().application as TragoMaestroApplication).database
+        QuestionPackRepository(
+            packDao = database.questionPackDao(),
+            questionDao = database.questionDao()
+        )
+    }
 
     private val gameSharedViewModel: GameSharedViewModel by activityViewModels()
 
@@ -35,7 +47,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         observeViewModel()
 
         if (gameSharedViewModel.currentQuestion.value == null) {
-            gameSharedViewModel.loadRandomQuestion()
+            loadQuestionFromDatabase()
         }
 
         Timber.i("GameFragment cargado")
@@ -44,7 +56,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     private fun setupListeners() {
         binding.btnCloseGame.setOnClickListener {
             Timber.d("Cerrar juego y volver a players")
-            findNavController().navigate(R.id.playersFragment)
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
 
         binding.btnConfirmTruth.setOnClickListener {
@@ -57,7 +69,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
 
         binding.btnSkipQuestion.setOnClickListener {
             Timber.i("Pregunta omitida")
-            gameSharedViewModel.loadRandomQuestion()
+            loadQuestionFromDatabase()
         }
     }
 
@@ -190,5 +202,12 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         super.onDestroyView()
         Timber.d("GameFragment destruido")
         _binding = null
+    }
+
+    private fun loadQuestionFromDatabase() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val question = questionRepository.getRandomQuestionFromSelectedPacks()
+            gameSharedViewModel.setCurrentQuestion(question)
+        }
     }
 }

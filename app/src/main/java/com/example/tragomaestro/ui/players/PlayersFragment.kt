@@ -48,7 +48,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
     private fun setupListeners() {
         binding.btnClose.setOnClickListener {
             Timber.i("Botón cerrar pulsado en PlayersFragment")
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.homeFragment, false)
         }
 
         binding.btnAddPlayer.setOnClickListener {
@@ -67,9 +67,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         }
 
         binding.btnEditPacks.setOnClickListener {
-            Timber.i("Botón editar packs pulsado")
-            // Actívalo cuando exista packsFragment
-            // findNavController().navigate(R.id.packsFragment)
+            findNavController().navigate(R.id.questionPacksFragment)
         }
 
         binding.btnStartGame.setOnClickListener {

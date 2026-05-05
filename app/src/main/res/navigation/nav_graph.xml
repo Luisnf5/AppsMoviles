@@ -6,6 +6,12 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/questionPacksFragment"
+        android:name="com.example.tragomaestro.ui.packs.QuestionPacksFragment"
+        android:label="QuestionPacks"
+        tools:layout="@layout/fragment_question_packs" />
+
+    <fragment
         android:id="@+id/achievementsFragment"
         android:name="com.example.tragomaestro.ui.achievements.AchievementsFragment"
         android:label="Achievements"
