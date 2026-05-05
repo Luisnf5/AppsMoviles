@@ -12,4 +12,7 @@
     <color name="tm_orange">#FF8C00</color>
     <color name="tm_blue">#3B82F6</color>
     <color name="tm_purple">#8B5CF6</color>
+    <color name="tm_success">#10B981</color>
+    <color name="tm_danger">#FF5C5C</color>
+    <color name="tm_beer_muted">#8A7D8F</color>
 </resources>
