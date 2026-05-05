@@ -131,54 +131,128 @@
         <LinearLayout
             android:id="@+id/bottomAchievementsNav"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="80dp"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_players_bottom_bar"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
-            <TextView
+            <LinearLayout
                 android:id="@+id/navPlayersFromAchievements"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="JUGADORES"
-                android:textColor="#66FFFFFF"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
-            <TextView
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/players_nav_players"
+                    android:src="@drawable/ic_users"
+                    app:tint="#4DFFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/players_nav_players"
+                    android:textAllCaps="true"
+                    android:textColor="#4DFFFFFF"
+                    android:textSize="7sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/navRulesFromAchievements"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="REGLAS"
-                android:textColor="#66FFFFFF"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
-            <TextView
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/players_nav_rules"
+                    android:src="@drawable/ic_book_open"
+                    app:tint="#4DFFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/players_nav_rules"
+                    android:textAllCaps="true"
+                    android:textColor="#4DFFFFFF"
+                    android:textSize="7sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/navAchievementsActive"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="LOGROS"
-                android:textColor="@color/tm_pink"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
 
-            <TextView
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/players_nav_achievements"
+                    android:src="@drawable/ic_trophy"
+                    app:tint="#FF2D85" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/players_nav_achievements"
+                    android:textAllCaps="true"
+                    android:textColor="#FF2D85"
+                    android:textSize="7sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/navProfileFromAchievements"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="PERFIL"
-                android:textColor="#66FFFFFF"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/players_nav_profile"
+                    android:src="@drawable/ic_user"
+                    app:tint="#4DFFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/players_nav_profile"
+                    android:textAllCaps="true"
+                    android:textColor="#4DFFFFFF"
+                    android:textSize="7sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>

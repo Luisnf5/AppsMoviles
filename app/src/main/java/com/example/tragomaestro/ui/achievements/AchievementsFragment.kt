@@ -45,7 +45,7 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
 
     private fun setupListeners() {
         binding.btnCloseAchievements.setOnClickListener {
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
 
         binding.navPlayersFromAchievements.setOnClickListener {
