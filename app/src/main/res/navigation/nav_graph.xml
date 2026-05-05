@@ -6,6 +6,12 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.tragomaestro.ui.result.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result" />
+
+    <fragment
         android:id="@+id/groupDecisionFragment"
         android:name="com.example.tragomaestro.ui.groupdecision.GroupDecisionFragment"
         android:label="GroupDecision"
