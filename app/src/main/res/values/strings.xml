@@ -77,4 +77,14 @@
     <string name="group_decision_confirm">CONFIRMAR RESPUESTA</string>
     <string name="group_decision_skip">OMITIR PREGUNTA</string>
     <string name="game_question_placeholder">Pregunta de la ronda</string>
+
+    <string name="result_success_title">¡VAYA OJO TENÉIS!</string>
+    <string name="result_success_subtitle">HABÉIS ACERTADO</string>
+    <string name="result_failure_title">¡QUÉ DESASTRE!</string>
+    <string name="result_failure_subtitle">HABÉIS FALLADO</string>
+
+    <string name="result_success_message_placeholder">El sujeto no sabe mentir. ¡Que beba por no saber ocultar sus secretos!</string>
+    <string name="result_next_success">SIGUIENTE VÍCTIMA →</string>
+    <string name="result_next_failure">SIGUIENTE OPORTUNIDAD →</string>
+    <string name="result_footer">PREPARANDO LA SIGUIENTE HUMILLACIÓN...</string>
 </resources>
