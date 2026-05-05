@@ -13,6 +13,11 @@ class GameStatsRepository(
         gameStatsDao.getStats()
 
     suspend fun initializeStatsIfNeeded() {
+        if (gameStatsDao.getStatsOnce() != null) {
+            Timber.d("Las estadísticas ya estaban inicializadas")
+            return
+        }
+
         gameStatsDao.insert(
             GameStatsEntity(
                 id = 1,

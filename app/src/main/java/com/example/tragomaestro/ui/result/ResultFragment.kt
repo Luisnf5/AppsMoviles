@@ -13,6 +13,11 @@ import com.example.tragomaestro.databinding.FragmentResultBinding
 import com.example.tragomaestro.model.RoundResult
 import com.example.tragomaestro.viewmodel.GameSharedViewModel
 import timber.log.Timber
+import androidx.lifecycle.lifecycleScope
+import com.example.tragomaestro.TragoMaestroApplication
+import com.example.tragomaestro.repository.AchievementRepository
+import com.example.tragomaestro.repository.GameStatsRepository
+import kotlinx.coroutines.launch
 
 class ResultFragment : Fragment(R.layout.fragment_result) {
 
@@ -20,6 +25,18 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
     private val binding get() = _binding!!
 
     private val gameSharedViewModel: GameSharedViewModel by activityViewModels()
+
+    private var resultRegistered = false
+
+    private val achievementRepository: AchievementRepository by lazy {
+        val database = (requireActivity().application as TragoMaestroApplication).database
+        AchievementRepository(database.achievementDao())
+    }
+
+    private val gameStatsRepository: GameStatsRepository by lazy {
+        val database = (requireActivity().application as TragoMaestroApplication).database
+        GameStatsRepository(database.gameStatsDao())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,7 +55,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
     private fun setupListeners() {
         binding.btnCloseResult.setOnClickListener {
             Timber.i("Cerrando resultado y volviendo a jugadores")
-            findNavController().navigate(R.id.playersFragment)
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
 
         binding.btnNextRound.setOnClickListener {
@@ -57,6 +74,8 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
     }
 
     private fun renderResult(result: RoundResult) {
+        registerResultIfNeeded(result)
+
         if (result.isCorrect) {
             renderSuccess(result)
         } else {
@@ -130,5 +149,31 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         super.onDestroyView()
         Timber.d("ResultFragment destruido")
         _binding = null
+    }
+
+    private fun registerResultIfNeeded(result: RoundResult) {
+        if (resultRegistered) return
+        resultRegistered = true
+
+        val playersCount = gameSharedViewModel.players.value?.size ?: 0
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            achievementRepository.initializeAchievementsIfNeeded()
+            gameStatsRepository.initializeStatsIfNeeded()
+
+            achievementRepository.registerRoundCompleted()
+            achievementRepository.registerPlayersCount(playersCount)
+            gameStatsRepository.registerRoundCompleted()
+
+            if (result.isCorrect) {
+                achievementRepository.registerCorrectGuess()
+                gameStatsRepository.registerCorrectGuess()
+            } else {
+                achievementRepository.registerFailedGuess()
+                gameStatsRepository.registerFailedGuess()
+            }
+
+            Timber.i("Resultado registrado en Room. Acierto=${result.isCorrect}, jugadores=$playersCount")
+        }
     }
 }
