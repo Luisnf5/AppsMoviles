@@ -12,7 +12,8 @@ import androidx.room.RoomDatabase
         QuestionEntity::class,
         GameStatsEntity::class
     ],
-    version = 1
+    version = 2,
+    exportSchema = false
 )
 abstract class TragoMaestroDatabase : RoomDatabase() {
 

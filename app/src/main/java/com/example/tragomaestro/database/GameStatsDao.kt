@@ -20,4 +20,7 @@ interface GameStatsDao {
 
     @Query("UPDATE game_stats SET failedGuesses = failedGuesses + 1 WHERE id = 1")
     suspend fun incrementFailed()
+
+    @Query("SELECT * FROM game_stats WHERE id = 1")
+    suspend fun getStatsOnce(): GameStatsEntity?
 }
