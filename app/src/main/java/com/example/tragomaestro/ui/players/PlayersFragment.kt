@@ -89,9 +89,7 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         }
 
         binding.navAchievements.setOnClickListener {
-            Timber.i("Botón logros pulsado")
-            // Actívalo cuando exista achievementsFragment
-            // findNavController().navigate(R.id.achievementsFragment)
+            findNavController().navigate(R.id.achievementsFragment)
         }
     }
 
