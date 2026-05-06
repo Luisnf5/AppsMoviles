@@ -45,11 +45,11 @@
 
     <string name="rules_step_3_title">El Veredicto</string>
     <string name="rules_step_3_heading">3. El Veredicto</string>
-    <string name="rules_step_3_desc">El sujeto confiesa la verdad. ¿El grupo acertó? Si han acertado, el sujeto bebe por no saber esconder sus secretos.</string>
+    <string name="rules_step_3_desc">El sujeto confiesa la verdad. ¿El grupo acertó? Si han acertado, el sujeto bebe la cantidad de tragas que cervezas se muestren por no saber esconder sus secretos.</string>
 
     <string name="rules_step_4_title">Castigo Grupal</string>
     <string name="rules_step_4_heading">4. Castigo Grupal</string>
-    <string name="rules_step_4_desc">Si el grupo falla, todos beben menos el sujeto. ¡Sed buenos amigos y no falléis!</string>
+    <string name="rules_step_4_desc">Si el grupo falla, todos beben ese número de tragos menos el sujeto. ¡Sed buenos amigos y no falléis!</string>
 
     <string name="rules_pro_tip">PRO TIP</string>
     <string name="rules_tip_text">"Si no sabes la respuesta, inventa la que más risa dé. Al final, lo importante es hidratarse con alegría."</string>

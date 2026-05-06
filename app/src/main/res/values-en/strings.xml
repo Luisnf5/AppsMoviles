@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TragoMaestro</string>
+    <string name="home_brand_trago">Trago</string>
+    <string name="home_brand_maestro">Maestro</string>
+    <string name="home_subtitle">THE ULTIMATE PARTY GAME</string>
+    <string name="home_start">START</string>
+    <string name="home_share">Share the party</string>
+    <string name="home_terms">TERMS OF SERVICE</string>
+    <string name="home_privacy">PRIVACY POLICY</string>
+    <string name="home_copyright">© 2024 TRAGOMAESTRO STUDIO</string>
+
+    <string name="cd_logo_copa">Cup logo</string>
+    <string name="cd_logo_rayo">Lightning icon</string>
+    <string name="cd_instagram">Instagram</string>
+    <string name="cd_facebook">Facebook</string>
+    <string name="cd_twitter">Twitter</string>
+
+    <string name="players_title">LET\'S PLAY!</string>
+    <string name="players_subtitle">GET THE PARTY READY</string>
+    <string name="players_add_label">ADD PLAYERS</string>
+    <string name="players_input_hint">Player name...</string>
+    <string name="players_edit_packs">Edit Question Packs</string>
+    <string name="players_start_game">START GAME</string>
+
+    <string name="players_nav_players">PLAYERS</string>
+    <string name="players_nav_rules">RULES</string>
+    <string name="players_nav_achievements">ACHIEVEMENTS</string>
+    <string name="players_nav_profile">PROFILE</string>
+
+    <string name="cd_close">Close</string>
+    <string name="cd_add_player">Add player</string>
+    <string name="cd_settings">Settings</string>
+
+    <string name="rules_title">RULES</string>
+    <string name="rules_subtitle">HOW NOT TO DIE TRYING</string>
+
+    <string name="rules_step_1_title">The Chosen One</string>
+    <string name="rules_step_1_heading">1. The Chosen One</string>
+    <string name="rules_step_1_desc">The app picks a \'subject\' from the group. Pass the phone to that person (carefully, no broken screens!).</string>
+
+    <string name="rules_step_2_title">The Inquisition</string>
+    <string name="rules_step_2_heading">2. The Inquisition</string>
+    <string name="rules_step_2_desc">A question about the subject appears. The group must secretly debate and choose a unanimous answer.</string>
+
+    <string name="rules_step_3_title">The Verdict</string>
+    <string name="rules_step_3_heading">3. The Verdict</string>
+    <string name="rules_step_3_desc">The subject reveals the truth. Did the group guess right? If they did, the subject drinks as many sips as beers shown for failing to hide their secrets.</string>
+
+    <string name="rules_step_4_title">Group Punishment</string>
+    <string name="rules_step_4_heading">4. Group Punishment</string>
+    <string name="rules_step_4_desc">If the group fails, everyone drinks that number of sips except the subject. Be good friends and don\'t fail!</string>
+
+    <string name="rules_pro_tip">PRO TIP</string>
+    <string name="rules_tip_text">"If you don\'t know the answer, make up the funniest one. In the end, what matters is staying hydrated with joy."</string>
+    <string name="rules_got_it">GOT IT</string>
+
+    <string name="turn_label">IT\'S THE TURN OF...</string>
+    <string name="turn_ready">THAT\'S ME!</string>
+    <string name="turn_icon_cd">Turn icon</string>
+    <string name="turn_arrow_cd">Right arrow</string>
+    <string name="turn_pass_device">Pass the device to CARLOS</string>
+    <string name="turn_pass_device_dynamic">Pass the device to %1$s</string>
+    <string name="turn_no_player">NO PLAYER</string>
+    <string name="turn_no_player_desc">No player has been selected yet</string>
+
+    <string name="pass_to_group_title">PASS THE PHONE</string>
+    <string name="pass_to_group_subject">Now %1$s, don\'t let them see your answer!</string>
+    <string name="pass_to_group_subject_placeholder">Now, don\'t let them see your answer!</string>
+    <string name="pass_to_group_description">The group must try to guess which answer the subject chose for this question.</string>
+    <string name="pass_to_group_button">THE GROUP IS READY</string>
+
+    <string name="group_decision_badge">WHAT DID %1$s CHOOSE?</string>
+    <string name="group_decision_badge_placeholder">WHAT DID THE SUBJECT CHOOSE?</string>
+    <string name="group_decision_instruction">Now the group must choose the answer they think the subject picked.</string>
+    <string name="group_decision_confirm">CONFIRM ANSWER</string>
+    <string name="group_decision_skip">SKIP QUESTION</string>
+    <string name="game_question_placeholder">Round question</string>
+
+    <string name="result_success_title">WHAT AN EYE YOU HAVE!</string>
+    <string name="result_success_subtitle">YOU GUESSED RIGHT</string>
+    <string name="result_failure_title">WHAT A DISASTER!</string>
+    <string name="result_failure_subtitle">YOU MISSED IT</string>
+
+    <string name="result_success_message_placeholder">The subject can\'t lie. Drink up for failing to hide your secrets!</string>
+    <string name="result_next_success">NEXT VICTIM →</string>
+    <string name="result_next_failure">NEXT CHANCE →</string>
+    <string name="result_footer">PREPARING THE NEXT HUMILIATION...</string>
+
+    <string name="achievements_title">ACHIEVEMENTS</string>
+    <string name="achievements_subtitle">YOUR DRINKING LEGEND</string>
+    <string name="achievements_unlocked_counter">UNLOCKED</string>
+    <string name="achievements_xp_label">LEVEL 4 · ROOKIE</string>
+    <string name="achievements_xp_value">XP 450</string>
+</resources>
