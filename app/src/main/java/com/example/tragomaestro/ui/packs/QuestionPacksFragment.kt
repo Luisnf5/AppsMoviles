@@ -41,6 +41,9 @@ class QuestionPacksFragment : Fragment(R.layout.fragment_question_packs) {
         setupRecyclerView()
         setupListeners()
         observeViewModel()
+
+        val locale = resources.configuration.locales[0].language
+        viewModel.initialize(locale)
     }
 
     private fun setupRecyclerView() {

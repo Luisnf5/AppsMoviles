@@ -15,10 +15,10 @@ class AchievementsViewModel(
     val achievements: LiveData<List<AchievementEntity>> =
         repository.achievements
 
-    init {
+    fun initialize(locale: String) {
         viewModelScope.launch {
             Timber.i("Inicializando logros")
-            repository.initializeAchievementsIfNeeded()
+            repository.initializeAchievementsIfNeeded(locale)
         }
     }
 

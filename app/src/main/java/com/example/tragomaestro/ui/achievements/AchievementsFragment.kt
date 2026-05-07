@@ -36,6 +36,9 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
         setupRecyclerView()
         setupListeners()
         observeViewModel()
+
+        val locale = resources.configuration.locales[0].language
+        viewModel.initialize(locale)
     }
 
     private fun setupRecyclerView() {

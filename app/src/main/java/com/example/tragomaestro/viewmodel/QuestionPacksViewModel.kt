@@ -16,9 +16,9 @@ class QuestionPacksViewModel(
     val packs: LiveData<List<QuestionPackEntity>> =
         repository.packs
 
-    init {
+    fun initialize(locale: String) {
         viewModelScope.launch {
-            repository.initializeDefaultPacksIfNeeded()
+            repository.initializeDefaultPacksIfNeeded(locale)
         }
     }
 
