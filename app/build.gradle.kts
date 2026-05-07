@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.ksp)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -62,4 +63,11 @@ dependencies {
     implementation("androidx.room:room-ktx:2.7.2")
     ksp("androidx.room:room-compiler:2.7.2")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }

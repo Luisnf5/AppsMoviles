@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "57232949831",
+    "project_id": "tragomaestro",
+    "storage_bucket": "tragomaestro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57232949831:android:b26239cde5a34f71946762",
+        "android_client_info": {
+          "package_name": "com.example.tragomaestro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlvzkpVW2UlH7R74905s9d2MQdu99J7Yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
