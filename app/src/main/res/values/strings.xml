@@ -60,6 +60,12 @@
     <string name="packs_selected_count_zero">0 PACKS SELECCIONADOS</string>
     <string name="packs_save_button">GUARDAR PACKS</string>
 
+    <string name="account_title">PERFIL</string>
+    <string name="account_subtitle">Inicia sesión para guardar tus logros y sincronizarlos entre dispositivos.</string>
+    <string name="account_sign_in_google">Iniciar sesión con Google</string>
+    <string name="account_sync_achievements">Sincronizar logros</string>
+    <string name="account_sign_out">Cerrar sesión</string>
+
     <string name="turn_label">TURNO DE...</string>
     <string name="turn_ready">¡SOY YO!</string>
     <string name="turn_icon_cd">Icono de turno</string>

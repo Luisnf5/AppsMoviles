@@ -60,6 +60,11 @@
     <string name="packs_selected_count_zero">0 PACKS SELECTED</string>
     <string name="packs_save_button">SAVE PACKS</string>
 
+    <string name="account_title">PROFILE</string>
+    <string name="account_subtitle">Sign in to save your achievements and sync them across devices.</string>
+    <string name="account_sign_in_google">Sign in with Google</string>
+    <string name="account_sync_achievements">Sync achievements</string>
+    <string name="account_sign_out">Sign out</string>
 
     <string name="turn_label">IT\'S THE TURN OF...</string>
     <string name="turn_ready">THAT\'S ME!</string>
