@@ -2,6 +2,7 @@ package com.example.tragomaestro.ui.packs
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -19,9 +20,17 @@ class QuestionPacksFragment : Fragment(R.layout.fragment_question_packs) {
     private var _binding: FragmentQuestionPacksBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter = QuestionPacksAdapter { pack ->
-        viewModel.setPackSelected(pack.id, !pack.isSelected)
-    }
+    private val adapter = QuestionPacksAdapter(
+        onPackClicked = { pack ->
+            viewModel.setPackSelected(pack.id, !pack.isSelected)
+        },
+        onEditClicked = { pack ->
+            findNavController().navigate(
+                R.id.customPackDetailFragment,
+                bundleOf("packId" to pack.id)
+            )
+        }
+    )
 
     private val viewModel: QuestionPacksViewModel by viewModels {
         val database = (requireActivity().application as TragoMaestroApplication).database
@@ -56,9 +65,13 @@ class QuestionPacksFragment : Fragment(R.layout.fragment_question_packs) {
             findNavController().popBackStack(R.id.playersFragment, false)
         }
 
+        binding.btnCreateCustomPack.setOnClickListener {
+            findNavController().navigate(R.id.createCustomPackFragment)
+        }
+
         binding.btnSavePacks.setOnClickListener {
             Timber.i("Selección de packs guardada")
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.playersFragment, false)
         }
     }
 
@@ -67,7 +80,8 @@ class QuestionPacksFragment : Fragment(R.layout.fragment_question_packs) {
             adapter.submitList(packs)
 
             val selectedCount = packs.count { it.isSelected }
-            binding.tvSelectedPacksCount.text = "$selectedCount ${getString(R.string.packs_selected_count_zero).drop(2)}"
+            binding.tvSelectedPacksCount.text =
+                getString(R.string.packs_selected_count, selectedCount)
 
             Timber.d("Packs cargados: ${packs.size}, seleccionados=$selectedCount")
         }

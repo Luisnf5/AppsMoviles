@@ -1,6 +1,7 @@
 package com.example.tragomaestro.ui.packs
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tragomaestro.R
@@ -8,7 +9,8 @@ import com.example.tragomaestro.database.QuestionPackEntity
 import com.example.tragomaestro.databinding.ItemQuestionPackBinding
 
 class QuestionPacksAdapter(
-    private val onPackClicked: (QuestionPackEntity) -> Unit
+    private val onPackClicked: (QuestionPackEntity) -> Unit,
+    private val onEditClicked: (QuestionPackEntity) -> Unit
 ) : RecyclerView.Adapter<QuestionPacksAdapter.QuestionPackViewHolder>() {
 
     private var packs: List<QuestionPackEntity> = emptyList()
@@ -40,7 +42,13 @@ class QuestionPacksAdapter(
         fun bind(pack: QuestionPackEntity) {
             binding.tvPackName.text = pack.name
             binding.tvPackDescription.text = pack.description
-            binding.tvPackType.text = if (pack.isCustom) "PERSONALIZADO" else "PREDETERMINADO"
+            binding.tvPackType.text = if (pack.isCustom) {
+                binding.root.context.getString(R.string.pack_type_custom)
+            } else {
+                binding.root.context.getString(R.string.pack_type_default)
+            }
+
+            binding.ivEditPack.visibility = if (pack.isCustom) View.VISIBLE else View.GONE
 
             if (pack.isSelected) {
                 binding.itemPackRoot.setBackgroundResource(R.drawable.bg_pack_item_selected)
@@ -54,6 +62,10 @@ class QuestionPacksAdapter(
 
             binding.itemPackRoot.setOnClickListener {
                 onPackClicked(pack)
+            }
+
+            binding.ivEditPack.setOnClickListener {
+                onEditClicked(pack)
             }
         }
     }

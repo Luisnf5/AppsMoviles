@@ -70,4 +70,23 @@
         android:label="GameFragment"
         tools:layout="@layout/fragment_game" />
 
+    <fragment
+        android:id="@+id/createCustomPackFragment"
+        android:name="com.example.tragomaestro.ui.packs.CreateCustomPackFragment"
+        android:label="CreateCustomPack"
+        tools:layout="@layout/fragment_create_custom_pack" />
+
+    <fragment
+        android:id="@+id/customPackDetailFragment"
+        android:name="com.example.tragomaestro.ui.packs.CustomPackDetailFragment"
+        android:label="CustomPackDetail"
+        tools:layout="@layout/fragment_custom_pack_detail" />
+
+    <fragment
+        android:id="@+id/addCustomQuestionFragment"
+        android:name="com.example.tragomaestro.ui.packs.AddCustomQuestionFragment"
+        android:label="AddCustomQuestion"
+        tools:layout="@layout/fragment_add_custom_question" />
+
+
 </navigation>
