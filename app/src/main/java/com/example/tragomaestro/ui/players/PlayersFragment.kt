@@ -41,6 +41,10 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         Timber.i("PlayersFragment cargado")
         _binding = FragmentPlayersBinding.bind(view)
 
+        //Inicializa en idioma ingles en caso de ser inglés, el mejor sitio para ponerlo, ya que es la entrada del juego
+        val locale = resources.configuration.locales[0].language
+        gameSharedViewModel.initialize(locale)
+
         setupListeners()
         observeViewModel()
     }
