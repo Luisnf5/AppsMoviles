@@ -88,5 +88,10 @@
         android:label="AddCustomQuestion"
         tools:layout="@layout/fragment_add_custom_question" />
 
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.tragomaestro.ui.account.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
 
 </navigation>
