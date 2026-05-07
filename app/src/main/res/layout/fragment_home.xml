@@ -47,19 +47,7 @@
                         android:layout_height="96dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/cd_logo_copa"
-                        android:src="@drawable/ic_martini"
-                        app:tint="@android:color/white" />
-
-                    <ImageView
-                        android:id="@+id/ivZap"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="44dp"
-                        android:layout_marginTop="18dp"
-                        android:contentDescription="@string/cd_logo_rayo"
-                        android:src="@drawable/ic_zap"
-                        app:tint="#FACC15" />
+                        android:src="@drawable/ic_launch_logo" />
                 </FrameLayout>
             </FrameLayout>
 
