@@ -88,6 +88,7 @@ class GameSharedViewModel : ViewModel() {
 
     fun prepareNextRound() {
         selectRandomPlayer()
+        _currentQuestion.value = null
         clearSelectedAnswer()
         clearGroupAnswer()
         _roundResult.value = null
