@@ -5,10 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/tm_background"
-        android:paddingStart="24dp"
-        android:paddingTop="32dp"
-        android:paddingEnd="24dp">
+        android:background="@color/tm_background">
 
         <ImageButton
             android:id="@+id/btnCloseAchievements"
@@ -16,18 +13,22 @@
             android:layout_height="52dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
             android:alpha="0.6"
             android:background="@drawable/bg_home_social_circle"
             android:contentDescription="@string/cd_close"
             android:padding="14dp"
             android:src="@drawable/ic_close"
-            app:tint="@android:color/white" />
+            app:tint="@android:color/white" />/>
 
         <LinearLayout
             android:id="@+id/achievementsHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="68dp"
+            android:layout_marginEnd="24dp"
             android:orientation="vertical">
 
             <TextView
@@ -124,9 +125,11 @@
             android:layout_height="0dp"
             android:layout_above="@id/bottomAchievementsNav"
             android:layout_below="@id/achievementsHeader"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="24dp"
             android:clipToPadding="false"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="16dp" />/>
 
         <LinearLayout
             android:id="@+id/bottomAchievementsNav"
