@@ -15,11 +15,17 @@ interface QuestionPackDao {
     @Query("SELECT * FROM question_packs WHERE isSelected = 1")
     suspend fun getSelectedPacks(): List<QuestionPackEntity>
 
+    @Query("SELECT * FROM question_packs WHERE id = :packId")
+    suspend fun getPackById(packId: Int): QuestionPackEntity?
+
     @Insert
     suspend fun insertPack(pack: QuestionPackEntity): Long
 
     @Delete
     suspend fun deletePack(pack: QuestionPackEntity)
+
+    @Query("DELETE FROM question_packs WHERE id = :packId AND isCustom = 1")
+    suspend fun deleteCustomPackById(packId: Int)
 
     @Query("UPDATE question_packs SET isSelected = :selected WHERE id = :packId")
     suspend fun setPackSelected(packId: Int, selected: Boolean)

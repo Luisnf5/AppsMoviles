@@ -76,4 +76,8 @@ class QuestionPacksViewModel(
             repository.deleteQuestion(question)
         }
     }
+
+    suspend fun getPackById(packId: Int): QuestionPackEntity? {
+        return repository.getPackById(packId)
+    }
 }

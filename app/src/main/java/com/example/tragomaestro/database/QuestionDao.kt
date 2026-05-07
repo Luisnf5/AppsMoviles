@@ -27,4 +27,7 @@ interface QuestionDao {
 
     @Delete
     suspend fun deleteQuestion(question: QuestionEntity)
+
+    @Query("DELETE FROM questions WHERE packId = :packId")
+    suspend fun deleteQuestionsByPack(packId: Int)
 }
