@@ -93,6 +93,10 @@ class PlayersFragment : Fragment(R.layout.fragment_players) {
         binding.navAchievements.setOnClickListener {
             findNavController().navigate(R.id.achievementsFragment)
         }
+
+        binding.navProfile.setOnClickListener {
+            findNavController().navigate(R.id.accountFragment)
+        }
     }
 
     private fun observeViewModel() {

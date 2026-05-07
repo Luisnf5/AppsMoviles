@@ -65,6 +65,10 @@
     <string name="account_sign_in_google">Iniciar sesión con Google</string>
     <string name="account_sync_achievements">Sincronizar logros</string>
     <string name="account_sign_out">Cerrar sesión</string>
+    <string name="default_web_client_id">Cerrar sesión</string>
+
+
+
 
     <string name="turn_label">TURNO DE...</string>
     <string name="turn_ready">¡SOY YO!</string>
