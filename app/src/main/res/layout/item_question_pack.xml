@@ -37,7 +37,7 @@
                 android:id="@+id/tvPackName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fiesta Clásica"
+                android:text="@string/pack_name_placeholder"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Preguntas básicas para empezar suave."
+                android:text="@string/pack_description_placeholder"
                 android:textColor="#77FFFFFF"
                 android:textSize="11sp" />
 
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="PREDETERMINADO"
+                android:text="@string/pack_type_default"
                 android:textColor="@color/tm_pink"
                 android:textSize="8sp"
                 android:textStyle="bold" />
@@ -68,6 +68,14 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_check"
+            app:tint="@color/tm_pink" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivEditPack"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_edit"
             app:tint="@color/tm_pink" />
 
     </LinearLayout>

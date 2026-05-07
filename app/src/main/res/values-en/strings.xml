@@ -102,4 +102,41 @@
     <string name="achievements_unlocked_counter">UNLOCKED</string>
     <string name="achievements_xp_label">LEVEL 4 · ROOKIE</string>
     <string name="achievements_xp_value">XP 450</string>
+
+    <string name="packs_title">PACKS</string>
+    <string name="packs_create_custom">＋ CREATE CUSTOM PACK</string>
+    <string name="packs_selected_count">%1$d PACKS SELECTED</string>
+    <string name="packs_selected_count_placeholder">0 PACKS SELECTED</string>
+    <string name="packs_hint">You can select several packs. If none are selected, absolute chaos mode will be used.</string>
+    <string name="packs_save">SAVE PACKS</string>
+    <string name="packs_error_empty">Fill in all fields</string>
+
+    <string name="pack_type_default">DEFAULT</string>
+    <string name="pack_type_custom">CUSTOM</string>
+    <string name="pack_name_placeholder">Classic Party</string>
+    <string name="pack_description_placeholder">Basic questions to start easy.</string>
+
+    <string name="create_pack_title">CREATE PACK</string>
+    <string name="create_pack_subtitle">YOUR CHAOS, YOUR RULES</string>
+    <string name="create_pack_name_hint">Pack name</string>
+    <string name="create_pack_description_hint">Pack description</string>
+    <string name="create_pack_button">CREATE PACK</string>
+
+    <string name="custom_pack_title_placeholder">CUSTOM PACK</string>
+    <string name="custom_pack_description_placeholder">Pack description</string>
+    <string name="custom_pack_question_count">%1$d QUESTIONS</string>
+    <string name="custom_pack_question_count_placeholder">0 QUESTIONS</string>
+    <string name="custom_pack_add_question">＋ ADD QUESTION</string>
+    <string name="custom_pack_delete">DELETE PACK</string>
+
+    <string name="custom_question_placeholder">Custom question</string>
+
+    <string name="add_question_title">ADD QUESTION</string>
+    <string name="add_question_subtitle">MAKE THE GROUP SUFFER</string>
+    <string name="add_question_hint">Write the question</string>
+    <string name="add_question_option_a">Option A</string>
+    <string name="add_question_option_b">Option B</string>
+    <string name="add_question_option_c">Option C</string>
+    <string name="add_question_option_d">Option D</string>
+    <string name="add_question_save">SAVE QUESTION</string>
 </resources>

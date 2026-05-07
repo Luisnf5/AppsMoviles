@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tm_background"
+        android:paddingStart="24dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <ImageButton
+            android:id="@+id/btnCloseCustomPackDetail"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:alpha="0.6"
+            android:background="@drawable/bg_home_social_circle"
+            android:contentDescription="@string/cd_close"
+            android:padding="14dp"
+            android:src="@drawable/ic_close"
+            app:tint="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/customPackHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCustomPackTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custom_pack_title_placeholder"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold|italic"
+                android:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:id="@+id/tvCustomPackDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/custom_pack_description_placeholder"
+                android:textColor="#77FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvCustomQuestionsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_game_player_badge"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:text="@string/custom_pack_question_count_placeholder"
+                android:textColor="@color/tm_pink"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnAddCustomQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@id/customPackHeader"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_players_pack_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/custom_pack_add_question"
+            android:textAllCaps="true"
+            android:textColor="@color/tm_pink"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCustomQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/btnAddCustomQuestion"
+            android:layout_above="@id/btnDeleteCustomPack"
+            android:layout_marginTop="22dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/btnDeleteCustomPack"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_pack_item_unselected"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="@string/custom_pack_delete"
+            android:textAllCaps="true"
+            android:textColor="@color/tm_danger"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</layout>

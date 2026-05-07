@@ -102,4 +102,41 @@
     <string name="achievements_unlocked_counter">DESBLOQUEADOS</string>
     <string name="achievements_xp_label">NIVEL 4 · NOVATO</string>
     <string name="achievements_xp_value">XP 450</string>
+
+    <string name="packs_title">PACKS</string>
+    <string name="packs_create_custom">＋ CREAR PACK PERSONALIZADO</string>
+    <string name="packs_selected_count">%1$d PACKS SELECCIONADOS</string>
+    <string name="packs_selected_count_placeholder">0 PACKS SELECCIONADOS</string>
+    <string name="packs_hint">Puedes seleccionar varios packs. Si no eliges ninguno, se usará el modo caos absoluto.</string>
+    <string name="packs_save">GUARDAR PACKS</string>
+    <string name="packs_error_empty">Completa todos los campos</string>
+
+    <string name="pack_type_default">PREDETERMINADO</string>
+    <string name="pack_type_custom">PERSONALIZADO</string>
+    <string name="pack_name_placeholder">Fiesta Clásica</string>
+    <string name="pack_description_placeholder">Preguntas básicas para empezar suave.</string>
+
+    <string name="create_pack_title">CREAR PACK</string>
+    <string name="create_pack_subtitle">TU CAOS, TUS REGLAS</string>
+    <string name="create_pack_name_hint">Nombre del pack</string>
+    <string name="create_pack_description_hint">Descripción del pack</string>
+    <string name="create_pack_button">CREAR PACK</string>
+
+    <string name="custom_pack_title_placeholder">PACK PERSONALIZADO</string>
+    <string name="custom_pack_description_placeholder">Descripción del pack</string>
+    <string name="custom_pack_question_count">%1$d PREGUNTAS</string>
+    <string name="custom_pack_question_count_placeholder">0 PREGUNTAS</string>
+    <string name="custom_pack_add_question">＋ AÑADIR PREGUNTA</string>
+    <string name="custom_pack_delete">ELIMINAR PACK</string>
+
+    <string name="custom_question_placeholder">Pregunta personalizada</string>
+
+    <string name="add_question_title">AÑADIR PREGUNTA</string>
+    <string name="add_question_subtitle">HAZ QUE EL GRUPO SUFRA</string>
+    <string name="add_question_hint">Escribe la pregunta</string>
+    <string name="add_question_option_a">Opción A</string>
+    <string name="add_question_option_b">Opción B</string>
+    <string name="add_question_option_c">Opción C</string>
+    <string name="add_question_option_d">Opción D</string>
+    <string name="add_question_save">GUARDAR PREGUNTA</string>
 </resources>
