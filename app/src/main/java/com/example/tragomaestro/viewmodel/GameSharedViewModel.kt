@@ -30,6 +30,12 @@ class GameSharedViewModel : ViewModel() {
     private val _roundResult = MutableLiveData<RoundResult?>()
     val roundResult: LiveData<RoundResult?> = _roundResult
 
+    private var isEnglish = false
+
+    fun initialize(locale: String) {
+        isEnglish = locale.startsWith("en")
+    }
+
     fun generateRoundResult() {
         val subjectAnswer = _selectedAnswerIndex.value
         val groupAnswer = _groupAnswerIndex.value
@@ -44,14 +50,26 @@ class GameSharedViewModel : ViewModel() {
         val drinkCount = (1..5).random()
 
         val message = if (isCorrect) {
-            listOf(
+            if (isEnglish) listOf(
+                "The subject can't lie. Drink up for failing to hide your secrets!",
+                "You read their mind like true masters of the drink.",
+                "Too easy... the subject was an open book.",
+                "The group smelled the truth from miles away."
+            ).random()
+            else listOf(
                 "El sujeto no sabe mentir. ¡Que beba por no saber ocultar sus secretos!",
                 "Habéis leído su mente como auténticos maestros del trago.",
                 "Demasiado fácil... el sujeto era un libro abierto.",
                 "El grupo ha olido la verdad desde lejos."
             ).random()
         } else {
-            listOf(
+            if (isEnglish) listOf(
+                "You don't know your friends at all. Everyone drinks except the subject!",
+                "The subject fooled you completely. Group punishment.",
+                "Terrible reading. The group needs to train.",
+                "You failed spectacularly. Shame toast."
+            ).random()
+            else listOf(
                 "No conocéis a vuestros amigos ni de lejos. ¡Bebed todos menos el sujeto!",
                 "El sujeto os ha engañado como quería. Castigo grupal.",
                 "Vaya lectura más mala. El grupo necesita entrenar.",
@@ -84,38 +102,6 @@ class GameSharedViewModel : ViewModel() {
     fun clearGroupAnswer() {
         _groupAnswerIndex.value = null
     }
-    private val provisionalQuestions = listOf(
-        Question(
-            id = 1,
-            text = "¿Cuál ha sido el momento más vergonzoso de tu última fiesta?",
-            answers = listOf(
-                AnswerOption("Cantar karaoke fatal", AnswerStyle.PINK),
-                AnswerOption("Confundirme de persona", AnswerStyle.ORANGE),
-                AnswerOption("Caerme bailando", AnswerStyle.BLUE),
-                AnswerOption("Escribirle a mi ex", AnswerStyle.PURPLE)
-            )
-        ),
-        Question(
-            id = 2,
-            text = "¿Cuál ha sido la mayor locura que has hecho en una noche de fiesta?",
-            answers = listOf(
-                AnswerOption("Perder el móvil", AnswerStyle.PINK),
-                AnswerOption("Dormirme en un sofá ajeno", AnswerStyle.ORANGE),
-                AnswerOption("Salir sin cartera", AnswerStyle.BLUE),
-                AnswerOption("Llamar a mi ex", AnswerStyle.PURPLE)
-            )
-        ),
-        Question(
-            id = 3,
-            text = "¿Qué es lo más raro que has comido o bebido de fiesta?",
-            answers = listOf(
-                AnswerOption("Una mezcla imposible", AnswerStyle.PINK),
-                AnswerOption("Algo del suelo", AnswerStyle.ORANGE),
-                AnswerOption("Un chupito sospechoso", AnswerStyle.BLUE),
-                AnswerOption("No quiero hablar de ello", AnswerStyle.PURPLE)
-            )
-        )
-    )
 
     fun addPlayer(name: String) {
         val cleanName = name.trim().uppercase()
@@ -161,20 +147,6 @@ class GameSharedViewModel : ViewModel() {
     fun clearSelectedPlayer() {
         _selectedPlayer.value = null
         Timber.d("Jugador seleccionado limpiado")
-    }
-
-    fun loadRandomQuestion() {
-        _groupAnswerIndex.value = null
-        if (provisionalQuestions.isEmpty()) {
-            Timber.w("No hay preguntas disponibles")
-            _currentQuestion.value = null
-            return
-        }
-
-        val question = provisionalQuestions.random()
-        _currentQuestion.value = question
-        _selectedAnswerIndex.value = null
-        Timber.i("Pregunta cargada: ${question.id}")
     }
 
     fun selectAnswer(index: Int) {

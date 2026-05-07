@@ -64,6 +64,10 @@
     <string name="turn_no_player">NO PLAYER</string>
     <string name="turn_no_player_desc">No player has been selected yet</string>
 
+    <string name="game_playing_badge">NOW PLAYING:</string>
+    <string name="game_confirm_truth">THIS IS THE TRUTH ✓</string>
+    <string name="game_skip_question">SKIP QUESTION</string>
+
     <string name="pass_to_group_title">PASS THE PHONE</string>
     <string name="pass_to_group_subject">Now %1$s, don\'t let them see your answer!</string>
     <string name="pass_to_group_subject_placeholder">Now, don\'t let them see your answer!</string>

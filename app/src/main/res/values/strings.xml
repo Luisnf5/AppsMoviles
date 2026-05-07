@@ -65,11 +65,16 @@
     <string name="turn_no_player">SIN JUGADOR</string>
     <string name="turn_no_player_desc">No hay ningún jugador seleccionado todavía</string>
 
+    <string name="game_playing_badge">ESTÁS JUGANDO:</string>
+    <string name="game_confirm_truth">ESTA ES LA VERDAD ✓</string>
+    <string name="game_skip_question">OMITIR PREGUNTA</string>
+
     <string name="pass_to_group_title">PASAD EL MÓVIL</string>
     <string name="pass_to_group_subject">Ahora %1$s, ¡Que no se note cuál es tu respuesta!</string>
     <string name="pass_to_group_subject_placeholder">Ahora, ¡Que no se note cuál es tu respuesta!</string>
     <string name="pass_to_group_description">El grupo debe intentar adivinar qué respuesta ha elegido el sujeto para esta pregunta.</string>
     <string name="pass_to_group_button">EL GRUPO ESTÁ LISTO</string>
+
 
     <string name="group_decision_badge">¿QUÉ HA ELEGIDO %1$s?</string>
     <string name="group_decision_badge_placeholder">¿QUÉ HA ELEGIDO EL SUJETO?</string>

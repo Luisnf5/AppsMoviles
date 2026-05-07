@@ -76,7 +76,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     private fun observeViewModel() {
         gameSharedViewModel.selectedPlayer.observe(viewLifecycleOwner) { player ->
             val playerName = player?.name ?: "JUGADOR"
-            binding.tvCurrentPlayerBadge.text = "ESTÁS JUGANDO: $playerName"
+            binding.tvCurrentPlayerBadge.text = getString(R.string.game_playing_badge) + " $playerName"
             Timber.d("Jugador actual mostrado: $playerName")
         }
 
@@ -205,7 +205,9 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     }
 
     private fun loadQuestionFromDatabase() {
+        val locale = resources.configuration.locales[0].language
         viewLifecycleOwner.lifecycleScope.launch {
+            questionRepository.initializeDefaultPacksIfNeeded(locale)
             val question = questionRepository.getRandomQuestionFromSelectedPacks()
             gameSharedViewModel.setCurrentQuestion(question)
         }
