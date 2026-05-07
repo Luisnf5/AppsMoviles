@@ -55,6 +55,12 @@
     <string name="rules_tip_text">"If you don\'t know the answer, make up the funniest one. In the end, what matters is staying hydrated with joy."</string>
     <string name="rules_got_it">GOT IT</string>
 
+    <string name="packs_subtitle">CHOOSE THE CAOS LEVEL</string>
+    <string name="packs_description">You can select multiple packs. If you don\'t choose any, absolute chaos mode will be used.</string>
+    <string name="packs_selected_count_zero">0 PACKS SELECTED</string>
+    <string name="packs_save_button">SAVE PACKS</string>
+
+
     <string name="turn_label">IT\'S THE TURN OF...</string>
     <string name="turn_ready">THAT\'S ME!</string>
     <string name="turn_icon_cd">Turn icon</string>

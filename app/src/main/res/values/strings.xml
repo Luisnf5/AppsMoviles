@@ -55,6 +55,10 @@
     <string name="rules_tip_text">"Si no sabes la respuesta, inventa la que más risa dé. Al final, lo importante es hidratarse con alegría."</string>
     <string name="rules_got_it">LO TENGO</string>
 
+    <string name="packs_subtitle">ELIGE EL NIVEL DEL CAOS</string>
+    <string name="packs_description">Puedes seleccionar varios packs. Si no eliges ninguno, se usará el modo caos absoluto.</string>
+    <string name="packs_selected_count_zero">0 PACKS SELECCIONADOS</string>
+    <string name="packs_save_button">GUARDAR PACKS</string>
 
     <string name="turn_label">TURNO DE...</string>
     <string name="turn_ready">¡SOY YO!</string>

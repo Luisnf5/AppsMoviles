@@ -67,7 +67,7 @@ class QuestionPacksFragment : Fragment(R.layout.fragment_question_packs) {
             adapter.submitList(packs)
 
             val selectedCount = packs.count { it.isSelected }
-            binding.tvSelectedPacksCount.text = "$selectedCount PACKS SELECCIONADOS"
+            binding.tvSelectedPacksCount.text = "$selectedCount ${getString(R.string.packs_selected_count_zero).drop(2)}"
 
             Timber.d("Packs cargados: ${packs.size}, seleccionados=$selectedCount")
         }
