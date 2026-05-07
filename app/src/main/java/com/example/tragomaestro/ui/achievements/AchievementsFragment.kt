@@ -58,6 +58,10 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
         binding.navRulesFromAchievements.setOnClickListener {
             findNavController().navigate(R.id.rulesFragment)
         }
+
+        binding.navProfileFromAchievements.setOnClickListener {
+            findNavController().navigate(R.id.accountFragment)
+        }
     }
 
     private fun observeViewModel() {
